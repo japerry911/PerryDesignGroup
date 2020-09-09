@@ -1,0 +1,10 @@
+type Query {
+  careers: [Career]
+}
+
+type Career {
+  id: ID!
+  title: String!
+  location: String!
+  appLink: String!
+}
