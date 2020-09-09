@@ -4,8 +4,21 @@ const cors = require("cors");
 const { ApolloServer, gql } = require("apollo-server-express");
 const fs = require("fs");
 const resolvers = require("./resolvers");
+const { MongoClient } = require("mongodb");
+require("dotenv").config();
 
 const port = 9000;
+
+const db = async () => {
+  try {
+    await MongoClient(process.env.DATABASE_URI);
+    console.log("Successfully connected to MongoDB");
+  } catch (error) {
+    console.error(`Error with MongoDB - ${error}`);
+  }
+};
+
+db();
 
 const app = express();
 app.use(cors(), bodyParser.json());
