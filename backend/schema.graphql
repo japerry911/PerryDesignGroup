@@ -15,3 +15,17 @@ type NewsArticle {
   description: String
   articleLink: String
 }
+
+type Project {
+  id: ID!
+  title: String!
+  location: String!
+  designType: String!
+  description: String!
+  images: [Image]
+}
+
+type Image {
+  url: String
+  public_id: string
+}
