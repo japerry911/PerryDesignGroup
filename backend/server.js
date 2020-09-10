@@ -27,10 +27,6 @@ db();
 const app = express();
 app.use(cors(), bodyParser.json());
 
-app.get("/api", (req, res) => {
-  res.send("HOORAY");
-});
-
 const typeDefs = gql(fs.readFileSync("./schema.graphql", { encoding: "utf8" }));
 
 const server = new ApolloServer({ typeDefs, resolvers });
