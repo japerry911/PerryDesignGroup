@@ -4,14 +4,18 @@ const cors = require("cors");
 const { ApolloServer, gql } = require("apollo-server-express");
 const fs = require("fs");
 const resolvers = require("./resolvers");
-const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
+const { Career } = require("./schemas/Career");
 require("dotenv").config();
 
 const port = 9000;
 
 const db = async () => {
   try {
-    await MongoClient(process.env.DATABASE_URI);
+    await mongoose.connect(process.env.DATABASE_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Successfully connected to MongoDB");
   } catch (error) {
     console.error(`Error with MongoDB - ${error}`);
