@@ -6,5 +6,12 @@ type Career {
   id: ID!
   title: String!
   location: String!
-  appLink: String!
+  appLink: String
+}
+
+type NewsArticle {
+  id: ID!
+  title: String!
+  description: String
+  articleLink: String
 }

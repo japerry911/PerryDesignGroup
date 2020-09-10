@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const Schema = mongoose.Schema;
 
-const careerSchema = new Schema({
+const careerSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
